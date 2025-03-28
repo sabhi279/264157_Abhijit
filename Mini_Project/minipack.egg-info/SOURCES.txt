@@ -1,0 +1,8 @@
+setup.py
+minipack/__init__.py
+minipack/stroops.py
+minipack.egg-info/PKG-INFO
+minipack.egg-info/SOURCES.txt
+minipack.egg-info/dependency_links.txt
+minipack.egg-info/not-zip-safe
+minipack.egg-info/top_level.txt
