@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-left">
+                <img src="{% static 'images/bank_logo.png' %}" alt="Bank Logo" class="logo-img">
+            </div>
+    
+            <div class="navbar-center">
+                <h1 class="center-heading">NEXA Bank</h1>
+            </div>
+    
+            <div class="navbar-right">
+                <span class="user-info">
+                    Welcome{% if request.user.is_authenticated %}, <strong>{{ request.user.username }}</strong>{% endif %}
+                </span>
+                <div class="nav-links">
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'logout' %}">Logout</a>
+                    {% else %}
+                        <a href="{% url 'login' %}">Login</a>
+                        <a href="{% url 'register' %}">Register</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    
+    
+    
+
+    <main>
+        <!-- Banking Section (Login Required) -->
+        <section class="tools">
+            <h3>Banking Services</h3>
+            <div class="tools-container">
+                <div class="tool-card">
+                    <a href="{% url 'login' %}?next={% url 'deposit' %}">
+                        <h4>Deposit Money</h4>
+                        <p>Login required to deposit money.</p>
+                    </a>
+                </div>
+                <div class="tool-card">
+                    <a href="{% url 'login' %}?next={% url 'withdraw' %}">
+                        <h4>Withdraw Money</h4>
+                        <p>Login required to withdraw money.</p>
+                    </a>
+                </div>
+                <div class="tool-card">
+                    {% if request.user.is_authenticated %}
+                        <h4>Account Balance</h4>
+                        <p>₹{{ balance }}</p>
+                    {% else %}
+                        <a href="{% url 'login' %}?next={% url 'account_balance' %}">
+                            <h4>Check Balance</h4>
+                            <p>Login required to view balance.</p>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Financial Tools (Public) -->
+        <section class="tools">
+            <h3>Financial Tools</h3>
+            <div class="tools-container">
+                <div class="tool-card">
+                    <a href="{% url 'emi' %}">
+                        <h4>EMI Calculator</h4>
+                        <p>Calculate your monthly EMI payments.</p>
+                    </a>
+                </div>
+                <div class="tool-card">
+                    <a href="{% url 'sip' %}">
+                        <h4>SIP Calculator</h4>
+                        <p>Calculate SIP investment returns.</p>
+                    </a>
+                </div>
+                <div class="tool-card">
+                    <a href="{% url 'networth' %}">
+                        <h4>Net Worth Calculator</h4>
+                        <p>Evaluate your financial worth.</p>
+                    </a>
+                </div>
+                <div class="tool-card">
+                    <a href="{% url 'fd' %}">
+                        <h4>FD Calculator</h4>
+                        <p>Estimate Fixed Deposit returns.</p>
+                    </a>
+                </div>
+                <div class="tool-card">
+                    <a href="{% url 'rd' %}">
+                        <h4>RD Calculator</h4>
+                        <p>Estimate Recurring Deposit returns.</p>
+                    </a>
+                </div>
+                <div class="tool-card">
+                    <a href="{% url 'retirement' %}">
+                        <h4>Retirement Calculator</h4>
+                        <p>Plan future income & expenses.</p>
+                    </a>
+                </div>
+                <div class="tool-card">
+                    <a href="{% url 'home_loan_eligibility' %}">
+                        <h4>Home Loan Eligibility</h4>
+                        <p>Check home loan eligibility.</p>
+                    </a>
+                </div>
+                <div class="tool-card">
+                    <a href="{% url 'credit_card' %}">
+                        <h4>Credit Card Balance</h4>
+                        <p>Track credit card payments.</p>
+                    </a>
+                </div>
+                <div class="tool-card">
+                    <a href="{% url 'taxable_income' %}">
+                        <h4>Taxable Income Calculator</h4>
+                        <p>Estimate your tax liability.</p>
+                    </a>
+                </div>
+                <div class="tool-card">
+                    <a href="{% url 'budget' %}">
+                        <h4>Budget Planner</h4>
+                        <p>Plan and track expenses.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Your Bank | All rights reserved</p>
+    </footer>
+</body>
+</html>

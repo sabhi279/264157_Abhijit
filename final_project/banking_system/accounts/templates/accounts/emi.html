@@ -1,0 +1,27 @@
+<!-- accounts/templates/accounts/emi_calculator.html -->
+
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>EMI Calculator</h2>
+  {% if error %}
+    <p style="color: red;">{{ error }}</p>
+  {% endif %}
+  <form method="POST">
+    {% csrf_token %}
+    <label for="principal">Principal (₹):</label>
+    <input type="text" name="principal" required>
+    <br>
+    <label for="annual_rate">Annual Interest Rate (%):</label>
+    <input type="text" name="annual_rate" required>
+    <br>
+    <label for="tenure_years">Loan Tenure (Years):</label>
+    <input type="text" name="tenure_years" required>
+    <br>
+    <button type="submit">Calculate EMI</button>
+  </form>
+
+  {% if emi %}
+    <h3>Your EMI is: ₹{{ emi }}</h3>
+  {% endif %}
+{% endblock %}

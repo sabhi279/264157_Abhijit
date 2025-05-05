@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Balance</title>
+</head>
+<body>
+    <h1>Account Balance</h1>
+    {% if bank_account %}
+        <p>Your current balance is ₹{{ bank_account.balance }}</p>
+    {% else %}
+        <p>No account found.</p>
+    {% endif %}
+    <a href="{% url 'dashboard' %}">Back to Dashboard</a>
+</body>
+</html>

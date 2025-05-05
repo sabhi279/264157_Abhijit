@@ -1,0 +1,8 @@
+<h2>FD Calculator</h2>
+<form method="post">{% csrf_token %}{{ form.as_p }}
+  <button type="submit">Calculate</button>
+</form>
+{% if result is not None %}
+  <p>FD Maturity Amount: ₹{{ result }}</p>
+{% endif %}
+<a href="{% url 'dashboard' %}">Back</a>

@@ -1,0 +1,8 @@
+<h2>Retirement Savings Estimator</h2>
+<form method="post">{% csrf_token %}{{ form.as_p }}
+  <button type="submit">Estimate</button>
+</form>
+{% if result is not None %}
+  <p>Projected Retirement Corpus: ₹{{ result }}</p>
+{% endif %}
+<a href="{% url 'dashboard' %}">Back</a>

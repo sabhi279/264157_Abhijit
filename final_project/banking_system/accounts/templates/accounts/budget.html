@@ -1,0 +1,8 @@
+<h2>Simple Budget Planner</h2>
+<form method="post">{% csrf_token %}{{ form.as_p }}
+  <button type="submit">Plan Budget</button>
+</form>
+{% if result is not None %}
+  <p>Suggested Savings/Investment Plan: ₹{{ result }}</p>
+{% endif %}
+<a href="{% url 'dashboard' %}">Back</a>

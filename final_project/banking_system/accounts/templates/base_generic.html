@@ -1,0 +1,19 @@
+<!-- base_generic.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Banking System{% endblock %}</title>
+</head>
+<body>
+    <h1>Welcome to the Banking System</h1>
+    <nav>
+        <a href="{% url 'home' %}">Home</a> |
+        <a href="{% url 'dashboard' %}">Dashboard</a> |
+        <a href="{% url 'deposit' %}">Deposit</a> |
+        <a href="{% url 'withdraw' %}">Withdraw</a> |
+        <a href="{% url 'logout' %}">Logout</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

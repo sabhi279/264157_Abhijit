@@ -1,0 +1,243 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+/* Header & Navigation Bar */
+header {
+    background-color: #333;
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+}
+
+.navbar-left {
+    flex: 1;
+}
+
+.logo-img {
+    width: 80px;
+    height: auto;
+}
+
+/* Center Heading */
+.navbar-center {
+    flex: 1;
+    text-align: center;
+}
+
+.center-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Right Side: Welcome & Links */
+.navbar-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-info {
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Main Section */
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+/* Account Info */
+.account-info ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.account-info li {
+    margin: 10px 0;
+}
+
+.account-info a {
+    text-decoration: none;
+    color: #0066cc;
+    font-size: 16px;
+}
+
+.account-info a:hover {
+    text-decoration: underline;
+}
+
+/* Financial Tools */
+.tools {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tools h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.tools-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.tool-card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.tool-card h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.tool-card p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.tool-card a {
+    text-decoration: none;
+    color: #0066cc;
+    font-weight: bold;
+}
+
+.tool-card a:hover {
+    text-decoration: underline;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .tools-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .tool-card {
+        padding: 15px;
+    }
+
+    .center-heading {
+        font-size: 1.5rem;
+    }
+
+    .navbar-right {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tools-container {
+        grid-template-columns: 1fr;
+    }
+
+    .logo-img {
+        width: 60px;
+    }
+
+    .center-heading {
+        font-size: 1.2rem;
+    }
+
+    .user-info {
+        font-size: 14px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .navbar-center {
+        text-align: left;
+        width: 100%;
+    }
+
+    .navbar-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+/* Error Messages */
+.error {
+    color: red;
+    font-weight: bold;
+    background-color: #ffcccc;
+    padding: 10px;
+    border: 1px solid red;
+}

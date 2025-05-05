@@ -1,0 +1,16 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Deposit Money</h2>
+  {% if error %}
+    <p style="color: red;">{{ error }}</p>
+  {% endif %}
+  <form method="POST">
+    {% csrf_token %}
+    <label for="amount">Deposit Amount:</label>
+    <input type="text" name="amount" required>
+    <button type="submit">Deposit</button>
+  </form>
+
+  <h3>Current Balance: {{ bank_account.balance }}</h3>
+{% endblock %}

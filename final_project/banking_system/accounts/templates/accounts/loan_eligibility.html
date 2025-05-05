@@ -1,0 +1,12 @@
+<h2>Home Loan Eligibility Estimator</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Calculate</button>
+</form>
+
+{% if result is not None %}
+  <p><strong>Estimated Loan Eligibility:</strong> ₹{{ result }}</p>
+{% endif %}
+
+<a href="{% url 'dashboard' %}">Back</a>
